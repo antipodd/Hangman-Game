@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">	
 	<link type="text/css" rel="stylesheet" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 	<title>Super Mario Hangman!</title>
 </head>
 <body>
@@ -20,5 +21,50 @@
 	<audio id="bkg">
     <source src="assets/sounds/SuperMarioBros.mp3" type="audio/mp3">
 	</audio>
+
+	<div class="container">
+		<div class="title">
+			<div class="top-left">
+			</div>
+			<div class="top-right">
+			</div>
+			<div class="heading">
+				<p>Super</p>
+				<p>Mario Bros.</p>
+				<p>Hangman!</p>
+			</div>
+			<div class="bottom-left">
+			</div>
+			<div class="bottom-right">
+			</div>
+		</div>
+		<div class="game-area">
+			<div class="image-area">
+				<img src="assets/images/SMBBoxart.png">
+				<div class="image-text">
+					Super Mario Bros.
+				</div>
+			</div>
+			<div class="play-area">
+				<p>Press any key to get</p><p>started!</p>
+				<div class="wins">
+					<p>WINS</p> 
+					<p class="win-no">0</p>
+				</div>
+				<div class="current-word">
+					<p>CURRENT WORD</p>
+					<p class="word-display"></p>
+				</div>
+				<div class="guesses-rem">
+					<p>NUMBER OF GUESSES</p> <p>REMAINING</p>
+					<p class="guesses-no"></p>
+				</div>
+				<div class="letters-guessed">
+				<p>LETTERS ALREADY GUESSED</p>
+				<p class="display-letters"></p>
+				</div>
+			</div>
+		</div>	
+	</div>
 </body>
 </html>

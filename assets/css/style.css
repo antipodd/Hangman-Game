@@ -1,3 +1,161 @@
+@font-face {
+   font-family: "title";
+   src: url("../fonts/Super Plumber Brothers.ttf");
+}
+
 body {
 	background: url("../images/bkg1.gif");
+}
+
+.container {
+	margin: 0 auto;
+	width: 960px;
+}
+
+.title {
+	margin:0 auto;
+	width: 600px;
+	font-family: "title";
+	font-size: 130px;
+	background-color: #d44a00;
+	color: #fec3b7;
+	text-shadow: 10px 10px black;
+	border-bottom: 5px solid black;
+	border-right: 5px solid black;
+	border-top: 5px solid #fec3b7;
+	border-left: 5px solid #fec3b7;
+}
+
+.title p {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.top-left {
+	position: relative;
+	top: 10px;
+	left: 10px;
+	height: 5px;
+	width: 5px;
+	background-color: #fec3b7;
+	box-shadow: 2.5px 2.5px black;
+}
+
+.top-right {
+	position: relative;
+	top: 5px;
+	left: 585px;
+	height: 5px;
+	width: 5px;
+	background-color: #fec3b7;
+	box-shadow: 2.5px 2.5px black;
+}
+
+.heading {
+	text-align: left;
+	margin-left: 40px;
+}
+
+.bottom-left {
+	position: relative;
+	bottom: 5px;
+	left: 10px;
+	height: 5px;
+	width: 5px;
+	background-color: #fec3b7;
+	box-shadow: 2.5px 2.5px black;
+}
+
+.bottom-right {
+	position: relative;
+	bottom: 10px;
+	left: 585px;
+	height: 5px;
+	width: 5px;
+	background-color: #fec3b7;
+	box-shadow: 2.5px 2.5px black;
+}
+
+.game-area {
+	border: 10px dotted black;
+	font-family: 'Press Start 2P', cursive;
+	margin-top: 20px;
+	height: 650px;
+	margin-bottom: 20px;
+}
+
+.image-area {
+	width:465px;
+	float:left;
+	border-right: 10px dotted black;
+	height:650px;
+	top: 0px;
+}
+
+.play-area {
+	width: 460px;
+	float:right;
+	padding-top: 20px;
+	text-align: center;
+	font-size: 20px;
+}
+
+.play-area p {
+	margin-top: 10px;
+}
+
+.wins {
+	padding: 15px 0px;
+}
+
+.win-no {
+	padding:15px 0px;
+}
+
+.current-word {
+	padding: 10px 0px;
+}
+
+.word-display {
+	padding:20px 0px;
+	letter-spacing: 10px;
+}
+
+.guesses-rem {
+	padding: 10px 0px;
+}
+
+.guesses-rem p {
+	padding-top: 10px;
+}
+
+.guesses-no {
+	padding: 10px 0px;
+	margin-top: 10px;
+}
+
+.letters-guessed {
+	padding: 10px 0px;
+}
+
+.display-letters {
+	padding: 20px 0px;
+}
+
+img {
+	max-width:90%;
+	max-height:90%;
+	display: block;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.image-text {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.image-area p {
+	text-align: center;
+	padding-top: 20px;
 }
