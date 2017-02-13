@@ -1,31 +1,36 @@
 var wins = 0;
 var guesses = 12;
 var options = ["MARIO", "YOSHI", "LUIGI", "TOAD", "PEACH", "KOOPA", "GOOMBA", "LAKITU", "BOWSER", "TANOOKI", "DAISY", "PRINCESS", "MUSHROOM", "FIRE FLOWER","ICE FLOWER", "BULLET BILL", "SUPER STAR", "BLUE SHELL", "COIN"];
-/*var word = "";*/
+var word = ""; 
+var display = [];
+var display2 = "";
+var guessedLetters = [];
+var guessedLetters2 = "";
+
 function reset() {
-  /*var*/ word = options[Math.floor(Math.random() * options.length)]; 
-          display = [];
-          for (var i = 0; i < word.length; i++) {
-            if (word.charAt(i) === " ") {
-            display.push(" ");
-            } else {
-            display.push("_");
-            }
-          }
-          var display2 = display.join("");
-          document.querySelector('.word-display').innerHTML = display2;
-          //console.log(display);
-          //console.log(display2);
-          guesses = 12;
-          guessedLetters = [];
-          var guessedLetters2 = guessedLetters.join(" ");
-          document.querySelector('.guesses-no').innerHTML = guesses;
-          document.querySelector('.display-letters').innerHTML = guessedLetters2;
-          //console.log(word);
+  word = options[Math.floor(Math.random() * options.length)]; 
+  display = [];
+  for (var i = 0; i < word.length; i++) {
+    if (word.charAt(i) === " ") {
+      display.push(" ");
+    } else {
+      display.push("_");
+    }
+  }
+  display2 = display.join("");
+  document.querySelector('.word-display').innerHTML = display2;
+  //console.log(display);
+  //console.log(display2);
+  guesses = 12;
+  guessedLetters = [];
+  guessedLetters2 = guessedLetters.join(" ");
+  document.querySelector('.guesses-no').innerHTML = guesses;
+  document.querySelector('.display-letters').innerHTML = guessedLetters2;
+  //console.log(word);
 }
 
 
-window.onload = function() { //need to run this after DOM is built otherwise display2 is null
+window.onload = function() { //need to run this after DOM is built otherwise display2 doesn't appear
   reset();
 }
 
@@ -69,36 +74,49 @@ myAudio.play();
         var userGuess = event.key;
         userGuess = userGuess.toUpperCase();
         //console.log(userGuess);
-
+        var count = 0; //ensure that sound for a repeated correct guess is not played again and repeated corrected guesses are not added to guessedLetters array
+        var correct = 0;  //ensure that correct guess is not stored in guessed letters
         for(var j = 0; j < word.length; j++) {
-          if (userGuess === word.charAt(j)) {
+          if (userGuess === display[j]) {
+            count++; //check for repeated correct guess
+          }
+          if (userGuess === word.charAt(j) && userGuess !== display[j]) {
             display[j] = userGuess;
-            var count = 0; //ensure that sound for a repeated correct guess is not played again
-            for (var y = 0; y < guessedLetters.length; y++) {
-              if (userGuess === guessedLetters[y]) {
-                count++
+            correct++;
+          }
+        }
+        if (correct > 0 && count === 0) {
+          playSound1();
+          guesses--;
+          document.querySelector('.guesses-no').innerHTML = guesses;
+
+            /*for (var y = 0; y < display.length; y++) {
+              if (userGuess === display[y]) {
+                count++;
               }
             }
             if (count === 0) {
-              
-            playSound1();
-              
+              playSound1();  
             }
+            if (correct > 0) {
+              guesses--;
+            }*/
           }          
-        }
+        
         
         var counter = 0;
         for (var guess = 0; guess < guessedLetters.length; guess++) {
           if (userGuess === guessedLetters[guess]) {
-            counter++
+            counter++;
           } //adding guessed letter into an array and checking the array to make sure the guess isn't repeated in the array
         }
-        if (counter === 0) {
+        if (counter === 0 && correct === 0 && count === 0) {
             guessedLetters.push(userGuess);
-            guesses--; //only guessed letters that have not been previously guessed cause a decrease in remaining guesses
+            guesses--; //only incorrect guessed letters that have not been previously guessed cause a decrease in remaining guesses
             document.querySelector('.guesses-no').innerHTML = guesses;
-
-        }
+        } /*else {
+          guesses--;
+        }*/
         //console.log(guessedLetters);
         var display2 = display.join("");
         document.querySelector('.word-display').innerHTML = display2;
